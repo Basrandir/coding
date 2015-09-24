@@ -1,0 +1,45 @@
+unit
+
+module Movement
+
+procedure checkPos ( value : int)
+	% If any value would be less than 0, then it stays at 0.
+	if value < 0 then
+		value := 0
+	end if
+end checkPos
+
+procedure drawChar (position : 1 .. 2 array of int)
+	drawfillbox (position(1), position(2), position(1) + 20, position(2) + 20, 5)
+end drawChar
+
+function moveChar : array of int
+	% Variables
+	var chars : array char of boolean
+	var charPlace = 1 .. 2 array of int
+	var x : int := 5
+	var y : int := 5
+
+	charPlace = (x, y)
+
+	loop
+		Input.KeyDown(chars)
+		if chars (KEY_UP_ARROW) then
+			charPlace(2) = (y + 1)			
+			checkPos (charPlace(2))
+		elsif chars (KEY_DOWN_ARROW) then
+			charPlace(2) = (y - 1)
+			checkPos (charPlace(2))
+		elsif chars (KEY_LEFT_ARROW) then
+			charPlace(1) = (x - 1)
+			checkPos (charPlace(1))
+		elsif chars (KEY_RIGHT_ARROW) then
+			charPlace(1) = (x + 1)
+			checkPos (charPlace(1))
+		end if
+	end loop
+	result charPlace
+end moveChar
+
+
+end Movement
