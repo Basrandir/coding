@@ -1,5 +1,4 @@
 import sys
-import getopt
 
 def usage():
     print ("Usage: baseC.py [BASE SYSTEM] [INTEGER]\n")
