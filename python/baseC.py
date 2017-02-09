@@ -1,15 +1,17 @@
 import sys
 
+
 def usage():
-    print ("Usage: baseC.py [INPUT BASE SYSTEM]::[OUTPUT BASE SYSTEM] [INTEGER]\n")
-    print ("[BASE SYSTEM] as either numerical digits or their corresponding names as defined below\n")
-    print ("Base Systems:")
-    print ("\tBase 2: binary")
-    print ("\tBase 10: decimal")
-    print ("\tBase 16: hex\n")
-    print ("Example:")
-    print ("baseC.py hex::decimal 4e")
-    print ("baseC.py 10::24 1337")
+    print("Usage: baseC.py [INPUT BASE SYSTEM]::[OUTPUT BASE SYSTEM] [INTEGER]\n")
+    print("[BASE SYSTEM] as either numerical digits or their corresponding names as defined below\n")
+    print("Base Systems:")
+    print("\tBase 2: binary")
+    print("\tBase 10: decimal")
+    print("\tBase 16: hex\n")
+    print("Example:")
+    print("baseC.py hex::decimal 4e")
+    print("baseC.py 10::24 1337")
+
 
 def toBase(inp, base):
     mod = inp % base
@@ -19,6 +21,7 @@ def toBase(inp, base):
         return toBase(int(inp/base), base) + digits[mod]
     else:
         return digits[mod]
+
 
 def toDecimal(inp, base):
     alp, dig = list(range(10, 36)), "abcdefghijklmnopqrstuvwxyz"
@@ -33,11 +36,12 @@ def toDecimal(inp, base):
         length -= 1
 
     return res
- 
+
+
 orig = sys.argv[1:]
 
 try:
-    init,to = orig[0].split("::")
+    init, to = orig[0].split("::")
     inp = int(orig[1])
 except:
     usage()
@@ -74,4 +78,4 @@ if (init != 10):
 
 inp = toBase(inp, to)
 
-print (inp)
+print(inp)
