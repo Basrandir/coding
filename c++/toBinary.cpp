@@ -23,9 +23,9 @@ int main()
 	cin >> number;
 	string binaryNum = binaryRepresentation(number, "");
 	
-	for (int i = 0 ; i < binaryNum.length() ; i++)
+	for (size_t i = 0 ; i < binaryNum.length() ; i++)
 		binary += binaryNum[(binaryNum.length() - 1) - i];
 
-	cout << binary;
+	cout << binary << "\n";
 	return 0;
 }
